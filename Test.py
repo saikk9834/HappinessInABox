@@ -25,7 +25,7 @@ model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics =
 train = ImageDataGenerator( rescale = 1.0/255. )
 test  = ImageDataGenerator( rescale = 1.0/255. )
 
-train_generator = train.flow_from_directory(train_dir, batch_size=20, class_mode='binary',
+train_generator = train.flow_from_directory(train_dir, batch_size=20, class_mode='binary', target_size = (150,150))
 
 validation_generator =  test.flow_from_directory(validation_dir, batch_size=20, class_mode  = 'binary', target_size = (150, 150))
 history = model.fit_generator(train_generator,
